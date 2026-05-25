@@ -256,10 +256,30 @@ int main() {
                 if (ans == currentCorrect) score++;
             }
 
-            cout << "\n=> KET THUC BAI THI! Ket qua cua " << name << " dat duoc: " << score << "/" << numQ << "\n";
-            
-            saveReport(rFile, name, score, numQ);
-            delete[] examQuestions; 
+          // Tự động chấm điểm và phân loại lời nhắc theo kết quả
+    double phanTram = (double)score / numQ * 100;
+
+    cout << "\n============================================\n";
+    cout << "   🎉 KET THUC BAI THI TRAC NGHIEM 🎉\n";
+    cout << "============================================\n";
+    cout << "Thi sinh: " << name << "\n";
+    cout << "Ket qua dat duoc: " << score << "/" << numQ << " cau dung.\n";
+    cout << "Ty le chinh xac: " << phanTram << "%\n";
+    cout << "Danh gia: ";
+
+    if (phanTram == 100) {
+        cout << "🥇 Xuat sac tuyet doi! Hurayyy, ban lam tot qua dioo~ ✨💖\n";
+    } else if (phanTram >= 80) {
+        cout << "🌟 Sieu cap dinh cao! Ban hoc bai ky lam dung khong ne? Qua gioi! 🎉\n";
+    } else if (phanTram >= 50) {
+        cout << "👍 Ket qua rat tot nhe! Co len mot xiu nua la dat diem toi da luon ruii~ 🥰\n";
+    } else {
+        cout << "💪 Khong sao het ne, van con nhieu co hoi ma! Om mot cai lay dong luc roi lan sau lam lai tot hon nhaaa~ 💕\n";
+    }
+    cout << "============================================\n";
+
+    saveReport(rFile, name, score, numQ);
+    delete[] examQuestions;
         }
         else if (choice == 3) {
             cout << "\n=== BAO CAO KET QUA LICH SU CAC LAN THI ===\n";
