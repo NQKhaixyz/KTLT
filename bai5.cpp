@@ -149,7 +149,7 @@ void saveReport(string filename, string name, int score, int total) {
 int main() {
     srand(time(0));
     
-    // ĐƯỜNG DẪN TƯƠNG ĐỐI NGUYÊN BẢN: Đọc trực tiếp file ở cùng thư mục, không chứa ổ C:\
+    // ĐÃ FIX KHAI BÁO CHUẨN Ở ĐÂY:
     string qFile = "questions.txt";
     string rFile = "report.txt";
 
